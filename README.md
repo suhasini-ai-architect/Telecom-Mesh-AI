@@ -98,7 +98,6 @@ streamlit run app.py
 
 ---
 
----
 ## Enterprise-Ready Features
  * **Zero-Trust AI:** Local inference ensures no data egress to external APIs.
  * **Agentic Reasoning:** LangGraph-driven state machine for complex logic.
@@ -108,7 +107,7 @@ streamlit run app.py
 ---
 
 ## Project Structure
-
+```bash
 Plaintexttelecom-mesh/
 ├── data/
 │   └── erp_crm_mock.json   # Simulated Enterprise System of Record
@@ -118,17 +117,15 @@ Plaintexttelecom-mesh/
 ├── app.py                  # Streamlit UI & Scenario Testing
 ├── requirements.txt        # Dependencies
 └── README.md               # Project Documentation
-
----
-
+```
 
 ---
 
 ## Future Roadmap
-* Vector DB Integration: Implementing Qdrant or Pinecone for real-time document indexing.
-* Multi-Model Routing: Integrating LiteLLM for cloud-hybrid failover.
-* Containerization: Full  * Docker support for Kubernetes (K8s) deployment
-* Observability: Adding OpenTelemetry for deep system tracing.
+* **Vector DB Integration:** Implementing Qdrant or Pinecone for real-time document indexing.
+* **Multi-Model Routing**: Integrating LiteLLM for cloud-hybrid failover.
+* **Containerization:** Full  * Docker support for Kubernetes (K8s) deployment
+* **Observability:** Adding OpenTelemetry for deep system tracing.
 
 ---
 
