@@ -1,0 +1,26 @@
+{
+  "customers": [
+    {
+      "id": "TEL-001", 
+      "name": "Global-IX", 
+      "sla_tier": "Gold", 
+      "region": "EU",
+      "contact": "admin@global-ix.com"
+    },
+    {
+      "id": "TEL-002", 
+      "name": "Asia-Connect", 
+      "sla_tier": "Silver", 
+      "region": "APAC",
+      "contact": "support@asia-connect.com"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "INC-99", 
+      "cust_id": "TEL-001", 
+      "status": "Closed", 
+      "downtime_hours": 4
+    }
+  ]
+}
