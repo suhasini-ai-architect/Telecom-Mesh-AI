@@ -1,130 +1,136 @@
-Telecom-Mesh: Zero-Trust Enterprise AI Controller
+# Telecom-Mesh: Zero-Trust Enterprise AI Controller
 
-Telecom-Mesh is a high-seniority AI architecture prototype designed for global Telecommunications and enterprise IT ecosystems.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
+[![Ollama](https://img.shields.io/badge/Ollama-Phi--4--Mini-orange)](https://ollama.ai/)
+[![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-green)](https://www.langchain.com/langgraph)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-It demonstrates how Generative AI, Agentic Workflows, and Retrieval-Augmented Generation (RAG) can be integrated into enterprise systems such as CRM, ERP, and SCM while maintaining Zero-Trust, compliance, and data sovereignty.
+**Telecom-Mesh** is a high-seniority architectural prototype designed for complex global Telecommunications and IT environments. It demonstrates the integration of **Generative AI**, **Agentic Workflows**, and **RAG frameworks** into legacy enterprise stacks (ERP/CRM/SCM).
 
-Business Problem
+---
 
-In telecom enterprises, incident auditing against SLAs and regulatory policies is:
+##  The Problem: Telecom SLA & Compliance Complexity
 
-Manual
-Time-consuming
-Distributed across multiple systems
-Example
+In global telecom environments, the gap between network incidents, customer SLAs, and regulatory policies creates significant operational risks. Auditing currently requires:
 
-A network outage must be validated against:
+* **Multi-System Fragmentation:** Manually accessing CRM, ERP, and static policy PDFs.
+* **SLA Threshold Risks:** Manual validation is slow and prone to oversight.
+* **Compliance Gaps:** Slow response times lead to financial penalties and regulatory friction.
 
-Customer SLA (e.g., Gold Tier → 2h max downtime)
-Regulatory policies
-Internal incident logs
-Solution: Telecom-Mesh
+---
 
-Telecom-Mesh introduces a Federated AI Mesh Architecture that automates:
+##  The Solution: Telecom-Mesh
 
-Semantic Routing
+Telecom-Mesh introduces a **Zero-Trust AI control layer** that enables:
 
-Determines whether a query requires:
+* **Semantic Routing:** Intelligent intent detection across enterprise data silos.
+* **Automated Auditing:** Real-time cross-referencing of incident telemetry against contract thresholds.
+* **Privacy-First Inference:** Local AI execution ensuring sensitive PII remains on-premise.
 
-Structured data (CRM/ERP)
-Unstructured data (RAG)
-Compliance Auditing
-Correlates incident data with SLA contracts
-Generates audit-ready responses
-Zero-Trust and Data Sovereignty
-Uses local Small Language Models (SLMs)
-Ensures sensitive data remains within enterprise boundaries
-Tech Stack
-Layer	Technology
-LLM Engine	Ollama (Phi-4 Mini)
-Orchestration	LangGraph
-Frontend	Streamlit
-Data Layer	JSON-based CRM/ERP + Simulated RAG
-Governance	FinOps Telemetry
-Architecture Overview
+---
 
-Telecom-Mesh operates as a multi-node AI decision graph.
+##  Architecture Overview
 
-Flow
-User Query
-Router Node (Intent Detection)
-Data Source Selection
-Context Aggregation
-Generator Node (LLM)
-Audit Response
-Architecture Diagram
-                  ┌────────────────────┐
-                  │    User Query      │
-                  └─────────┬──────────┘
-                            │
-                            ▼
-                  ┌────────────────────┐
-                  │   Router Node      │
-                  │ (Intent Analysis)  │
-                  └─────────┬──────────┘
-                            │
-        ┌───────────────────┼───────────────────┐
-        ▼                   ▼                   ▼
-┌───────────────┐   ┌───────────────┐   ┌───────────────┐
-│ CRM / ERP     │   │ RAG Knowledge │   │ Policy Engine │
-│ (Structured)  │   │ (Unstructured)│   │ (SLA Rules)   │
-└───────┬───────┘   └───────┬───────┘   └───────┬───────┘
-        │                   │                   │
-        └──────────┬────────┴────────┬──────────┘
-                   ▼                 ▼
-             ┌────────────────────────────┐
-             │   Context Aggregator       │
-             └──────────┬─────────────────┘
-                        ▼
-             ┌────────────────────────────┐
-             │   Generator Node (LLM)     │
-             └──────────┬─────────────────┘
-                        ▼
-             ┌────────────────────────────┐
-             │ Audit Response + Insights  │
-             └────────────────────────────┘
-Project Structure
-telecom-mesh/
-├── data/
-│   └── erp_crm_mock.json
-├── src/
-│   ├── __init__.py
-│   └── engine.py
-├── app.py
-├── requirements.txt
-└── README.md
-Getting Started
-Prerequisites
-Python 3.10+
-Ollama installed
+Built for enterprise-grade scalability and governance:
+
+* **Model:** `Phi-4 Mini` (via Ollama) for high-reasoning local inference.
+* **Orchestration:** `LangGraph` for stateful, cyclic agentic workflows.
+* **Interface:** `Streamlit` with an Enterprise-grade Dashboard aesthetic.
+* **Data Integration:** Hybrid approach using JSON (Structured ERP) and Vector-simulated RAG (Unstructured).
+* **Governance:** `FinOps Telemetry` tracking latency and local compute "costs."
+
+---
+
+### System Workflow
+
+1.  **Inquiry:** User submits a natural language incident query.
+2.  **Intent Analysis:** The Router Node detects the required data source.
+3.  **Data Selection:**
+    * **CRM/ERP:** For structured customer/incident status.
+    * **RAG Knowledge Base:** For unstructured SLA rules and ISO standards.
+4.  **Synthesis:** Context Aggregator merges data for a grounded LLM audit response.
+
+---
+
+##  Architecture Diagram
+
+![Architecture](./asset/Architecture.jpg)
+
+---
+
+## Quick Start (Local Setup)
+
+###  1. Prerequisites
+
+Install Ollama and pull the model:
+
+```bash
 ollama pull phi4-mini
 ollama cp phi4-mini:latest phi4
-Installation
-git clone https://github.com/your-username/telecom-mesh.git
-cd telecom-mesh
-pip install -r requirements.txt
-Run the Application
-streamlit run app.py
-Key Features
-Agentic AI (LangGraph)
-Stateful workflow orchestration
-Multi-step reasoning across systems
-FinOps and Observability
-Tracks latency
-Tracks token usage
-Tracks cost
-Zero-Trust AI Design
-Local inference using Ollama
-No external API dependency
-Enterprise Integration
-Structured data (CRM/ERP)
-Unstructured data (documents, policies)
-Roadmap
-Vector database integration (Qdrant / Pinecone)
-Multi-model routing (LiteLLM)
-Kubernetes deployment (Docker)
-Real-time telemetry (OpenTelemetry)
-Author
+```
 
-Suhasini Kshirsagar
-Azure Solution Architect transitioning to AI Architect
+---
+
+
+## 2. Installation
+```bash
+# Clone the repository
+
+git clone [https://github.com/your-username/telecom-mesh.git](https://github.com/your-username/telecom-mesh.git)
+
+cd telecom-mesh
+
+# Set up virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: .\venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+---
+
+###  3. Run the App
+
+```bash
+streamlit run app.py
+```
+
+---
+
+---
+## Enterprise-Ready Features
+ * **Zero-Trust AI:** Local inference ensures no data egress to external APIs.
+ * **Agentic Reasoning:** LangGraph-driven state machine for complex logic.
+ * **FinOps Observability:** Integrated latency and performance monitoring.
+ *** Modular Design:** Scalable folder structure for production deployment.
+
+---
+
+## Project Structure
+
+Plaintexttelecom-mesh/
+├── data/
+│   └── erp_crm_mock.json   # Simulated Enterprise System of Record
+├── src/
+│   ├── __init__.py
+│   └── engine.py           # LangGraph logic & LLM nodes
+├── app.py                  # Streamlit UI & Scenario Testing
+├── requirements.txt        # Dependencies
+└── README.md               # Project Documentation
+
+---
+
+
+---
+
+## Future Roadmap
+* Vector DB Integration: Implementing Qdrant or Pinecone for real-time document indexing.
+* Multi-Model Routing: Integrating LiteLLM for cloud-hybrid failover.
+* Containerization: Full  * Docker support for Kubernetes (K8s) deployment
+* Observability: Adding OpenTelemetry for deep system tracing.
+
+---
+
+## Author
+Suhasini KshirsagarAzure Solution Architect | Transitioning to Global AI Architect
