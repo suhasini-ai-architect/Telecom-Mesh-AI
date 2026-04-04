@@ -76,7 +76,7 @@ ollama cp phi4-mini:latest phi4
 ```bash
 # Clone the repository
 
-git clone [https://github.com/your-username/telecom-mesh.git](https://github.com/your-username/telecom-mesh.git)
+git clone https://github.com/suhasini-ai-architect/Telecom-Mesh-AI.git
 
 cd telecom-mesh
 
